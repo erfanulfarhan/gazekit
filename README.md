@@ -96,6 +96,11 @@ uv pip install --python .venv/bin/python -e ".[camera,dev]"
 The `camera` extra (OpenCV, MediaPipe, AVFoundation bindings) is needed only
 for `calibrate` and for `verify --save`. Plain `verify` needs just numpy.
 
+> **Avoid putting the virtualenv in an iCloud-synced folder** such as a synced
+> Desktop or Documents. Sync can duplicate and rename files underneath it: a
+> `.pth` finder module renamed to `finder 2.py` silently breaks the install,
+> and the import failure that follows points nowhere near the real cause.
+
 ## Notes on the GazeAt app
 
 `gazekit` currently targets [GazeAt](https://github.com/WangWilly/gaze-correction-cam),

@@ -24,3 +24,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+# Tests run against src/ even without an editable install, which keeps them
+# working if the install is disturbed (an iCloud-synced venv can rename files).
+pythonpath = ["src"]
+testpaths = ["tests"]
