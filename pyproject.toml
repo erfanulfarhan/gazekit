@@ -1,0 +1,26 @@
+[project]
+name = "gazekit"
+version = "0.1.0"
+description = "Calibrate and verify macOS gaze-correction cameras"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Erfanul Hakim Farhan" }]
+keywords = ["gaze", "webcam", "macos", "eye-contact", "calibration"]
+
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+# Only needed for `gazekit calibrate` (iris measurement) and `--save` output.
+camera = ["opencv-python>=4.9", "mediapipe>=0.10", "pyobjc-framework-AVFoundation>=10"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+gazekit = "gazekit.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["gazekit*"]
